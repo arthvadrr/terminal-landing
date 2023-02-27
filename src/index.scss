@@ -1,4 +1,5 @@
 body {
+  background-color: #010101;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,4 +11,16 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+html, body, * {
+  font-family: 'Share Tech Mono', monospace;
+  box-sizing: border-box;
+  font-size: 2.4rem;
+}
+
+html {
+  padding: 0;
+  margin: 0;
+  font-size: 62.5%;
 }

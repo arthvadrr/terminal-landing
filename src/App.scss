@@ -1,0 +1,53 @@
+.App {
+  position: relative;
+  background-color: #040404;
+  color: rgb(0, 242, 0);
+  height: calc(100vh - 3rem);
+  width: calc(100vw - 3rem);
+  padding: 0;
+  margin: 0;
+  border-radius: 3rem;
+  padding: 4rem;
+  margin: 1.5rem;
+  border: 2px solid #222;
+
+  &::before,
+  &::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 3rem;
+  }
+
+  &::before {
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+  }
+
+  &::after {
+    background: rgba(18, 16, 16, 0.1);
+    opacity: 0;
+    z-index: 2;
+    pointer-events: none;
+    animation: flicker 50ms infinite;
+  }
+}
+
+@keyframes flicker {
+  0% {opacity: 0.47;}
+  10% {opacity: 0.13;}
+  20% {opacity: 0.08;}
+  30% {opacity: 0.45;}
+  40% {opacity: 0.16;}
+  50% {opacity: 0.36;}
+  60% {opacity: 0.2;}
+  70% {opacity: 0.56;}
+  80% {opacity: 0.11;}
+  90% {opacity: 0.5;}
+  100% {opacity: 0.24;}
+}
