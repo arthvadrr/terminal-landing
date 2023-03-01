@@ -1,16 +1,14 @@
 .App {
   position: relative;
-  background-color: #040404;
+  background: #000;
   color: rgb(0, 242, 0);
-  height: calc(100vh - 3rem);
-  width: calc(100vw - 3rem);
+  height: calc(100vh);
+  width: calc(100vw);
   padding: 0;
   margin: 0;
-  border-radius: 3rem;
-  padding: 4rem;
-  margin: 1.5rem;
-  border: 2px solid #222;
-  text-shadow: 10px 10px 10px rgb(32, 112, 32);
+  padding: 2rem;
+  text-shadow: 5px 5px 10px rgb(40, 141, 40);
+  overflow-x: hidden;
 
   &::before,
   &::after {
@@ -21,34 +19,38 @@
     left: 0;
     bottom: 0;
     right: 0;
-    border-radius: 3rem;
   }
 
   &::before {
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-    background-size: 100% 2px, 3px 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.2) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.08), rgba(0, 255, 0, 0.08), rgba(0, 0, 255, 0.08));
+    background-size: 100% 1px, 5px 100%;
     pointer-events: none;
   }
 
   &::after {
-    background: rgba(18, 16, 16, 0.1);
+    background: rgba(0, 0, 0, 0.1);
     opacity: 0;
     z-index: 2;
     pointer-events: none;
-    animation: flicker 50ms infinite;
+    animation: flicker 100ms linear infinite;
   }
 }
 
 @keyframes flicker {
-  0% {opacity: 0.47;}
-  10% {opacity: 0.13;}
-  20% {opacity: 0.08;}
-  30% {opacity: 0.45;}
-  40% {opacity: 0.16;}
-  50% {opacity: 0.36;}
-  60% {opacity: 0.2;}
-  70% {opacity: 0.56;}
-  80% {opacity: 0.11;}
-  90% {opacity: 0.5;}
-  100% {opacity: 0.24;}
+  0% {opacity: 0.17;}
+  20% {opacity: 0.31;}
+  40% {opacity: 0.21;}
+  60% {opacity: 0.55;}
+  80% {opacity: 0.12;}
+  100% {opacity: 0.1;}
+}
+
+
+.crt-on {
+  animation: 2s cubic-bezier(0, 1, 0, 1) glitchy;
+}
+
+@keyframes glitchy {
+  from {transform: skew(120deg); filter: blur(10px)}
+  to {transform: skew(0); filter: blur(0)}
 }

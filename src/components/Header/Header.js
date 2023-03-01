@@ -3,13 +3,21 @@ import './Header.scss';
 const Header = () => {
   return (
     <header className="App-header">
-      <div>Welcome to <span className="uppercase-text">Landing Terminal</span> (TM) Termlink</div>
-      <pre className="ascii-art">
-&nbsp;&nbsp;&nbsp;&nbsp;_         _   _     _       _____                   _             _ <br/>
-&nbsp;&nbsp;&nbsp;/ \   _ __| |_| |__ ( )___  |_   _|__ _ __ _ __ ___ (_)_ __   __ _| |<br/>
-&nbsp;&nbsp;/ _ \ | '__| __| '_ \|// __|   | |/ _ \ '__| '_ ` _ \| | '_ \ / _` | |<br/>
-&nbsp;/ ___ \| |  | |_| | | | \__ \   | |  __/ |  | | | | | | | | | | (_| | |<br/>
- /_/   \_\_|   \__|_| |_| |___/   |_|\___|_|  |_| |_| |_|_|_| |_|\__,_|_|</pre>
+      <div className="crt-on">Welcome to <span className="uppercase-text">Terminal Landing</span> (TM) Termlink</div>
+      <div className="ascii-art">
+      <pre className="crt-on">
+&nbsp;_____                   _             _      _        _   _           <br/>
+|_   _|__ _ __ _ __ ___ (_)_ __   __ _| |    / \   ___| |_(_)_   _____ <br/>
+&nbsp;&nbsp;| |/ _ \ '__| '_ ` _ \| | '_ \ / _` | |   / _ \ / __| __| \ \ / / _ \<br/>
+&nbsp;&nbsp;| |  __/ |  | | | | | | | | | | (_| | |  / ___ \ (__| |_| |\ V /  __/<br/>
+&nbsp;&nbsp;|_|\___|_|  |_| |_| |_|_|_| |_|\__,_|_| /_/   \_\___|\__|_| \_/ \___|<br/>
+                                                                        
+
+
+                                                            
+
+</pre>
+</div>
     </header>
   );
 }
