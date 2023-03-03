@@ -1,29 +1,64 @@
+body {
+  background-color: #000;
+  background-image: url('../public/assets/fallout-4-terminal-v.jpg');
+  background-size: calc(106vw) calc(115vh);
+  background-position: center -9vh;
+  overflow: hidden;
+}
+
 .App {
   position: relative;
   background: #000;
   color: rgb(0, 242, 0);
-  height: calc(100vh);
-  width: calc(100vw);
-  padding: 0;
-  margin: 0;
-  padding: 2rem;
+  height: 94.5vh;
+  width: 70vw;
+  opacity: 1;
+  margin: 3.5vh 15vw 2vh 15vw;
+  box-shadow: inset 0 14px 28px rgba(255,255,255,0.2), 0 10px 10px rgba(0,0,0,0.22);
+  padding: 3rem;
+  border: 10px double #0e0e0e;
+  border-right: 12px double #0e0e0e;
+  border-top: none;
+  border-left: 8px double #0f0f0f;
+  border-bottom: 20px double #0f0f0f;
   text-shadow: 5px 5px 10px rgb(40, 141, 40);
   overflow-x: hidden;
+  border-radius: 8rem;
+  border-top-left-radius: 10rem;
+  border-top-right-radius: 9rem;
+  border-bottom-right-radius: 9rem;
+  border-bottom-left-radius: 10rem;
+  transform: rotateX(15deg);
+
+  @media screen and (max-width: 1200px) {
+    height: 100vh;
+    width: 100vw;
+    border: unset;
+    border-radius: 0;
+    margin: 0;
+    box-shadow: none;
+    transform: none;
+
+    &::before,
+    &::after {
+      display: none !important;
+    }
+  }
 
   &::before,
   &::after {
-    content: " ";
+    content: "";
     display: block;
     position: absolute;
     top: 0;
     left: 0;
-    bottom: 0;
-    right: 0;
+    height: 100%;
+    width: 100%;
   }
 
   &::before {
-    background: linear-gradient(rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.2) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.08), rgba(0, 255, 0, 0.08), rgba(0, 0, 255, 0.08));
-    background-size: 100% 1px, 5px 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.2) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.1), rgba(0, 255, 0, 0.1), rgba(0, 0, 255, 0.1));
+    background-size: 100% 1px, 6px 100%;
     pointer-events: none;
   }
 
@@ -32,14 +67,14 @@
     opacity: 0;
     z-index: 2;
     pointer-events: none;
-    animation: flicker 100ms linear infinite;
+    animation: flicker 500ms linear infinite;
   }
 }
 
 @keyframes flicker {
   0% {opacity: 0.17;}
   20% {opacity: 0.31;}
-  40% {opacity: 0.21;}
+  40% {opacity: 0;}
   60% {opacity: 0.55;}
   80% {opacity: 0.12;}
   100% {opacity: 0.1;}
