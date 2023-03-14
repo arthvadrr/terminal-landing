@@ -1,5 +1,4 @@
 .ascii-art {
-    font-size: 2.5rem;
     white-space: pre;
     background: linear-gradient(129deg, rgba(250,230,56,1) 0%, rgba(221,36,36,1) 25%, rgba(65,191,32,1) 50%, rgba(134,249,198,1) 75%, rgba(255,246,0,1) 100%);
     background-clip: text;
@@ -7,6 +6,27 @@
     animation: ascii 20s cubic-bezier(0, 1, 0, 1) infinite;
     filter: brightness(1);
     transform: skew(0);
+
+
+    pre {
+        font-size: 2.2rem;
+
+        @media screen and (max-width: 1416px) {
+            font-size: 1.8rem;
+        }
+
+        @media screen and (max-width: 810px) {
+            font-size: 1.4rem;
+        }
+
+        @media screen and (max-width: 658px) {
+            font-size: 1rem;
+        }
+
+        @media screen and (max-width: 426px) {
+            font-size: 0.8rem;
+        }
+    }
 }
 
 @keyframes ascii {
