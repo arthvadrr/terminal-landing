@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Projects from './routes/Projects/Projects';
 import Home from './routes/Home/Home';
-import Header from './components/Header/Header';
 import './App.scss';
 
 const App = () => {
@@ -10,18 +9,13 @@ const App = () => {
 
   return (
     <div className="App">
-      {screen === 'Home' &&
-        <Home />
-      }
-
-      {screen === 'Projects' &&
-        <Projects />
-      }
+      {screen === 'Home' && <Home />}
+      {screen === 'Projects' && <Projects />}
 
       <nav>
         <ul>
-          <li><a onClick={() => setScreen('Home')}>Home</a></li>
-          <li><a onClick={() => setScreen('Projects')}>Projects</a></li>
+          <li><a onClick={() => setScreen('Home')} className={`${screen === 'Home' ? 'active' : ''}`}>Home</a></li>
+          <li><a onClick={() => setScreen('Projects')} className={`${screen === 'Home' ? 'active' : ''}`}>Projects</a></li>
         </ul>
       </nav>
     </div>
