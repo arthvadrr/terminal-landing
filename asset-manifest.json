@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/terminal-landing/static/css/main.242de109.css",
-    "main.js": "/terminal-landing/static/js/main.4f7df9d8.js",
+    "main.css": "/terminal-landing/static/css/main.6d880b3d.css",
+    "main.js": "/terminal-landing/static/js/main.64880cf6.js",
     "static/media/fallout-4-terminal-v.jpg": "/terminal-landing/static/media/fallout-4-terminal-v.f42dc36d92aab710deea.jpg",
     "index.html": "/terminal-landing/index.html",
-    "main.242de109.css.map": "/terminal-landing/static/css/main.242de109.css.map",
-    "main.4f7df9d8.js.map": "/terminal-landing/static/js/main.4f7df9d8.js.map"
+    "main.6d880b3d.css.map": "/terminal-landing/static/css/main.6d880b3d.css.map",
+    "main.64880cf6.js.map": "/terminal-landing/static/js/main.64880cf6.js.map"
   },
   "entrypoints": [
-    "static/css/main.242de109.css",
-    "static/js/main.4f7df9d8.js"
+    "static/css/main.6d880b3d.css",
+    "static/js/main.64880cf6.js"
   ]
 }
