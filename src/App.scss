@@ -6,6 +6,35 @@ body {
   overflow: hidden;
 }
 
+#root {
+  
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+  }
+
+  &::before {
+    background: linear-gradient(rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.2) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.06), rgba(0, 0, 255, 0.06));
+    background-size: 100% 1px, 6px 100%;
+    pointer-events: none;
+  }
+
+  &::after {
+    background: rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    z-index: 2;
+    pointer-events: none;
+    animation: flicker 500ms linear infinite;
+  }
+}
+
 .App {
   position: relative;
   background: #000;
@@ -49,31 +78,6 @@ body {
   @media screen and (max-width: 810px) {
     padding: 1.5rem;
   }
-
-  &::before,
-  &::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-  }
-
-  &::before {
-    background: linear-gradient(rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.2) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.06), rgba(0, 0, 255, 0.06));
-    background-size: 100% 1px, 6px 100%;
-    pointer-events: none;
-  }
-
-  &::after {
-    background: rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    z-index: 2;
-    pointer-events: none;
-    animation: flicker 500ms linear infinite;
-  }
 }
 
 @keyframes flicker {
@@ -115,19 +119,25 @@ nav {
     li {
       margin: 1rem 0;
 
-      a {
-        display: block;
+      .terminal-btn {
+        background: unset;
+        border: unset;
+        width: 100%;
+        text-align: left;
+        display: flex;
         color: rgb(0, 242, 0);
         text-decoration: none;
         text-transform: uppercase;
         padding: 0.5rem 0.2rem;
 
         &:before {
-          content: '[ '
+          content: '[ '; 
+          margin-right: 1rem;
         }
 
         &:after {
-          content: ' ]'
+          content: ' ]';
+          margin-left: 1rem;
         }
 
         &:hover,

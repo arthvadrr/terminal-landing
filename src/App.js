@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Projects from './routes/Projects/Projects';
+import Nav from './components/Nav/Nav'
 import Home from './routes/Home/Home';
 import './App.scss';
 
@@ -7,17 +8,23 @@ const App = () => {
 
   const [screen, setScreen] = useState('Home');
 
+  const setScreenProjects = () => {
+    setScreen('Projects');
+  }
+
+  const setScreenHome = () => {
+    setScreen('Home');
+  }
+
   return (
     <div className="App">
       {screen === 'Home' && <Home />}
-      {screen === 'Projects' && <Projects />}
+      {screen === 'Projects' && <Projects screen={screen} setScreen={setScreen}/>}
 
-      <nav>
-        <ul>
-          <li><a onClick={() => setScreen('Home')} className={`${screen === 'Home' ? 'active' : ''}`}>Home</a></li>
-          <li><a onClick={() => setScreen('Projects')} className={`${screen === 'Home' ? 'active' : ''}`}>Projects</a></li>
-        </ul>
-      </nav>
+      <Nav 
+        screen={screen}
+        setScreen={setScreen}
+      />
     </div>
   );
 }
