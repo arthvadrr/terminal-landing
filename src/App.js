@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import Projects from './routes/Projects/Projects';
 import Nav from './components/Nav/Nav'
 import Home from './routes/Home/Home';
+import Projects from './routes/Projects/Projects';
+import About from './routes/About/About';
 import './App.scss';
 
 const App = () => {
@@ -18,13 +19,17 @@ const App = () => {
 
   return (
     <div className="App">
-      {screen === 'Home' && <Home />}
+      {screen === 'Home' &&
+      <> 
+        <Home />
+        <Nav 
+          screen={screen}
+          setScreen={setScreen}
+        />
+      </>
+      }
       {screen === 'Projects' && <Projects screen={screen} setScreen={setScreen}/>}
-
-      <Nav 
-        screen={screen}
-        setScreen={setScreen}
-      />
+      {screen === 'About' && <About screen={screen} setScreen={setScreen} />}
     </div>
   );
 }

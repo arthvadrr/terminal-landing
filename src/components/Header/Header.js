@@ -13,10 +13,10 @@ const Header = () => {
  `.split(''))
   const [welcomeArr, setWelcomeArr] = useState('Welcome to Terminal Landing (TM) Termlink'.split(''));
   const [welcome, setWelcome] = useState('');
-  const [ascii1, setAscii1] = useState('')
+  const [ascii1, setAscii1] = useState('');
 
   useEffect(() => {
-    typeText(loader, setLoader, loaderArr, setLoaderArr, 300)
+    typeText(loader, setLoader, loaderArr, setLoaderArr, 100)
     
     if (loaderArr.length === 0) {
       setLoader('')

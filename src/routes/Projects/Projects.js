@@ -4,21 +4,21 @@ import Nav from '../../components/Nav/Nav'
 import './Projects.scss';
 
 const Projects = ({screen, setScreen}) => {
-    const [repos, setRepos] = useState(projects)
-    const [loading, setLoading] = useState(false)
+    const [repos, setRepos] = useState([])
+    const [loading, setLoading] = useState(true)
         
-    // useEffect(() => {
-    //     fetch('https://api.github.com/users/arthvadrr/repos?sort=updated').then(res => {
-    //         if (res.ok) return res.json()
-    //     })
-    //     .then(data => setRepos(data))
-    //     .catch(err => console.log('No repos fetched :: ', err))
-    //     .finally(() => setLoading(false))
-    // }, [])
+    useEffect(() => {
+        fetch('https://api.github.com/users/arthvadrr/repos?sort=updated').then(res => {
+            if (res.ok) return res.json()
+        })
+        .then(data => setRepos(data))
+        .catch(err => console.log('No repos fetched :: ', err))
+        .finally(() => setLoading(false))
+    }, [])
 
     return (
         <div className="crt-on">
-            <div className="projects-flex">
+            <div className="page-flex">
             <div>
                 <h2>Projects</h2>
                 <Nav 
