@@ -1,7 +1,26 @@
 .ascii-portrait {
     background-image: url('../../../public/assets/ascii-portrait.jpg');
-    height: 200px;
-    width: auto;
+    height: 320px;
+    width: 350px;
+    float: left;
+    margin: 0 2rem 2rem 0;
+    border-radius: 2rem;
     background-repeat: no-repeat;
     background-size: contain;
+    filter: blur(1px);
+
+    @media screen and (max-width: 744px) {
+        float: none;
+    }
+}
+
+.ascii-pre {
+    font-size: 6px;
+    margin: 0 2rem 2rem 0;
+    float: left;
+    filter: blur(1px);
+
+    @media screen and (max-width: 744px) {
+        float: none;
+    }
 }

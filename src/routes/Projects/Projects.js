@@ -1,12 +1,12 @@
+import typeText from '../../scripts/typeText';
 import {useEffect, useState} from 'react';
-import { projects } from '../../assets/temp-data.js'
 import Nav from '../../components/Nav/Nav'
 import './Projects.scss';
 
 const Projects = ({screen, setScreen}) => {
     const [repos, setRepos] = useState([])
     const [loading, setLoading] = useState(true)
-        
+
     useEffect(() => {
         fetch('https://api.github.com/users/arthvadrr/repos?sort=updated').then(res => {
             if (res.ok) return res.json()

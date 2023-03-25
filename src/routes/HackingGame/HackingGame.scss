@@ -1,0 +1,11 @@
+.attempts-remaining {
+    display: flex;
+
+    .attempt-graphic {
+        display: block;
+        height: 24px;
+        width: 15px;
+        margin-left: 20px;
+        background-color: green;
+    }
+}

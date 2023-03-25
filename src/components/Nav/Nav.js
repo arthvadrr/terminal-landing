@@ -11,6 +11,9 @@ const Nav = ({screen, setScreen}) => {
             <li>
                 <button onClick={() => setScreen('About')} className={`terminal-btn ${screen === 'About' ? 'active' : ''}`}>About</button>
             </li>
+            <li>
+                <button onClick={() => setScreen('HackingGame')} className={`terminal-btn ${screen === 'HackingGame' ? 'active' : ''}`} aria-label="hacking game">!@#%!@</button>
+            </li>
             </ul>
       </nav>
     )
