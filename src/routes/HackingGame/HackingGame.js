@@ -1,9 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Nav from '../../components/Nav/Nav';
+import terms from './terms.js'
 import './HackingGame.scss';
 
 const createMemoryAddr = () => {
-    let result = ['0', 'x', Math.floor(Math.random() * 9), Math.floor(Math.random() * 9), Math.floor(Math.random() * 9)]
+    const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+
+    let result = ['0', 'x', Math.floor(Math.random() * 9), Math.floor(Math.random() * 9), alphabet[Math.floor(Math.random() * alphabet.length)], Math.floor(Math.random() * 9)];
 
     return result.join('');
 }
@@ -12,10 +15,17 @@ const createMemoryAddrs = amount => {
     const result = [];
 
     for (let i = 0; i < amount; i++) {
-        result.push(createMemoryAddr())
+        result.push(createMemoryAddr());
     }
 
     return result;
+}
+
+const getPassword = () => {
+    const range = terms.words.length;
+    const index = Math.floor(Math.random() * range);
+
+    return terms.words[index];
 }
 
 const HackingGame = ({screen, setScreen}) => {
@@ -37,15 +47,18 @@ const HackingGame = ({screen, setScreen}) => {
                         return <span className="attempt-graphic"></span>
                     })}</span>
 
-                    <div className="words-cols">
+                    <div className="hacking-game-cols">
                         <div className="memory-addr">
                             {memoryAddrCol.map(addr => <div>{addr}</div>)}
                         </div>
                         <div className="words">
                             {wordsCol}
                         </div>
+                        <div className="likeness">
+                            
+                        </div>
                     </div>
-
+                    <button onClick={() => console.log(getPassword())}>clicky</button>
                 </div>
             </div>
         </div>
