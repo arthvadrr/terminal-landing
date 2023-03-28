@@ -1,3 +1,7 @@
+.hacking-inner {
+    width: 100%;
+}
+
 .attempts-remaining {
     display: flex;
 
@@ -21,5 +25,19 @@
     &:active {
         background-color: rgb(0, 242, 0);
         color: #000;
+    }
+}
+
+.hacking-game-cols {
+    display: flex;
+
+    .row.likeness {
+        display: flex;
+        flex-direction: column-reverse;
+        padding: 0 1rem;
+    }
+
+    .hovered-word {
+        height: 3rem;
     }
 }

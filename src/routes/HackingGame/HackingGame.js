@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import Nav from '../../components/Nav/Nav';
 import './HackingGame.scss';
 
@@ -6,13 +5,10 @@ const HackingGame = ({
     screen,
     setScreen,
     gameBoard,
-    attemptsLeft
+    attemptsLeft,
+    hoveredWord,
+    likenessCol
 }) => {
-
-    useEffect(() => {
-        console.log('hi')
-    }, [attemptsLeft])
-
     return (
         <div className="crt-on">
             <div className="page-flex">
@@ -28,15 +24,12 @@ const HackingGame = ({
                         })
                     }</span>
                     <div className="hacking-game-cols">
-                        <div className="rows">
+                        <div className="row words">
+                            {gameBoard.rows.map((row, index) => <div key={`row-${index}`}>{row}</div>)}
                         </div>
-                        <div className="likeness">
-                            {gameBoard.rows.map((row, index) => {
-                                
-                                return (
-                                    <div key={`row-${index}`}>{row}</div>
-                                )
-                            })}
+                        <div className="row likeness">
+                            <div className="hovered-word">&gt;&nbsp;{hoveredWord}</div>
+                            <div className="likenessCol">{likenessCol}</div>
                         </div>
                     </div>
                 </div>

@@ -77,7 +77,9 @@ const hackingGameInit = (
             <button 
                 className="hacking-word" 
                 key={`word-${usedWords.length}`}
-                onClick={() => decAttempt()}
+                onMouseOver={(e) => handleOnMouseOver(e)}
+                onMouseOut={() => setHoveredWord('')}
+                onClick={(e) => handleWordSelect(e.target.innerHTML)}
             >{word}</button>
         );
     }
@@ -90,6 +92,8 @@ const hackingGameInit = (
         <button 
             className="hacking-dud" 
             key={`dud-${usedDuds.length}`}
+            onMouseOver={(e) => handleOnMouseOver(e)}
+            onMouseOut={() => setHoveredWord('')}
             onClick={() => resetAttempts()}
         >{dud}</button>);
     }
@@ -129,10 +133,10 @@ const hackingGameInit = (
   }
 
   const gameBoardSettings = {
-    rows:          10,
-    rowLength:     30,
-    minWords:      5,
-    minDuds:       2,
+    rows:          30,
+    rowLength:     35,
+    minWords:      12,
+    minDuds:       3,
     wordOdds:      3,
     dudOdds:       5
 }
@@ -140,14 +144,45 @@ const hackingGameInit = (
   const decAttempt = () => {
     const shadow = attemptsLeft;
     shadow.pop();
+    console.log(gameBoard.password)
     setAttemptsLeft(() => [...shadow]);
+  }
+
+  const handleOnMouseOver = (e, word) => {
+    setHoveredWord(e.target.innerHTML);
+  }
+
+  let likenessKey = 0;
+  const handleWordSelect = (word) => {
+    if (word !== gameBoard.password) {
+      decAttempt();
+
+      let counter = 0;
+
+      const wordArr = word.split('');
+      const passwordArr = gameBoard.password.split('');
+
+      for (let i = 0; i < wordArr.length; i++) {
+        if (wordArr[i] === passwordArr[i]) counter++;
+      }
+
+      const likenessShadow = likenessCol;
+      likenessShadow.push(<div key={`likeness-${likenessKey}`}>{`>`} Likeness {`${counter}`}</div>)
+      setLikenessCol([...likenessShadow]);
+      likenessKey++;
+
+    } else {
+      console.log('winner!')
+    }
   }
 
   const resetAttempts = () => setAttemptsLeft([1, 1, 1, 1]);
   
   const [attemptsLeft, setAttemptsLeft] = useState([1, 1, 1, 1]);
   const [screen, setScreen] = useState('Home');
-  const [gameBoard, setGameBoard] = useState(hackingGameInit(gameBoardSettings, decAttempt, resetAttempts))
+  const [gameBoard, setGameBoard] = useState(hackingGameInit(gameBoardSettings, decAttempt, resetAttempts));
+  const [hoveredWord, setHoveredWord] = useState('');
+  const [likenessCol, setLikenessCol] = useState([]);
 
   return (
     <div className="App">
@@ -167,6 +202,8 @@ const hackingGameInit = (
         setScreen={setScreen}
         gameBoard={gameBoard}
         attemptsLeft={attemptsLeft}
+        hoveredWord={hoveredWord}
+        likenessCol={likenessCol}
       />}
     </div>
   );
