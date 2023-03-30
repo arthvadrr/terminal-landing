@@ -1,17 +1,61 @@
-import { useState } from 'react';
-import Nav from './components/Nav/Nav'
-import Home from './routes/Home/Home';
-import Projects from './routes/Projects/Projects';
-import About from './routes/About/About';
-import HackingGame from './routes/HackingGame/HackingGame';
-import terms from './assets/terms';
-import './App.scss';
+import { 
+  useState, 
+  useEffect 
+}                   from 'react';
+import Nav          from './components/Nav/Nav'
+import Home         from './routes/Home/Home';
+import Projects     from './routes/Projects/Projects';
+import About        from './routes/About/About';
+import HackingGame  from './routes/HackingGame/HackingGame';
+import AccessDenied from './routes/AccessDenied/AccessDenied';
+import DirView      from './routes/DirView/DirView'
+import terms        from './assets/terms';
+import                   './App.scss';
 
 const App = () => {  
-  const hackingGameInit = (
-    gameBoardSettings, 
-    resetAttempts
-  ) => {
+
+  const directories = [
+    {
+      name: 'root',
+      type: 'dir',
+      contents: [
+        {
+          name: 'passwords',
+          type: 'file',
+          extension: 'txt'
+        },
+        {
+          name: 'cat-pics',
+          type: 'dir',
+          contents: [
+            {
+              name: 'old-leo',
+              type: 'file',
+              extension: 'jpg'
+            },
+            {
+              name: 'bonkers-the-cat',
+              type: 'file',
+              extension: 'jpg'
+            },
+          ]
+        },
+      ]
+    },
+    {
+      name: 'trash',
+      type: 'dir',
+      contents: [
+        {
+          name: 'important-email',
+          type: 'file',
+          extension: 'txt'
+        },
+      ]
+    }
+  ]
+
+  const hackingGameInit = (gameBoardSettings) => {
     const { 
       rows, 
       rowLength, 
@@ -146,6 +190,20 @@ const App = () => {
     setAttemptsLeft(() => [...shadow]);
   }
 
+  const resetAttempts = () => {
+    const shadow = attemptsLeft;
+      while (shadow.length !== 6) {
+        shadow.push(1);
+      }
+    setAttemptsLeft(() => [...shadow]);
+  }
+
+  const clearLikenessCol = () => {
+    while (likenessCol.length) {
+      likenessCol.pop();
+    }
+  }
+
   const handleOnMouseOver = (e) => {
     setHoveredWord(e.target.innerHTML);
   }
@@ -168,7 +226,7 @@ const App = () => {
       const likenessShadow = likenessCol;
 
       likenessShadow.push(
-        <div className="likeness-result" key={`likeness-${likenessKey}`}>
+        <div className="likeness-result" key={`likeness-blah-${likenessKey}`}>
           <div>&gt; {word}</div>
           <div>&gt; Entry denied.</div>
           <div>{`>`} Likeness = {`${counter}`}</div>
@@ -178,21 +236,31 @@ const App = () => {
       likenessKey++;
 
     } else {
-      console.log('winner!')
+      setIsPassword(true)
     }
   }
 
-  const resetAttempts = () => setAttemptsLeft([1, 1, 1, 1]);
+  const resetHackingGame = () => {
+    resetAttempts();
+    clearLikenessCol();
+    setScreen('HackingGame');
+    setHoveredWord('');
+    setGameBoard(hackingGameInit(gameBoardSettings, decAttempt));
+  }
   
-  const [attemptsLeft, setAttemptsLeft] = useState([1, 1, 1, 1]);
+  const [attemptsLeft, setAttemptsLeft] = useState([1, 1, 1, 1, 1, 1]);
   const [screen, setScreen] = useState('Home');
-  const [gameBoard] = useState(hackingGameInit(gameBoardSettings, decAttempt, resetAttempts));
+  const [gameBoard, setGameBoard] = useState(hackingGameInit(gameBoardSettings, decAttempt));
   const [hoveredWord, setHoveredWord] = useState('');
+  const [isPassword, setIsPassword] = useState(true);
   const [likenessCol, setLikenessCol] = useState([]);
+
+  useEffect(() => {
+  }, [gameBoard]);
 
   return (
     <div className="App">
-      {screen === 'Home' &&
+      {screen === 'Home' && !isPassword &&
       <> 
         <Home />
         <Nav 
@@ -201,18 +269,27 @@ const App = () => {
         />
       </>
       }
-      {screen === 'Projects' && <Projects screen={screen} setScreen={setScreen}/>}
-      {screen === 'About' && <About screen={screen} setScreen={setScreen} />}
-      {screen === 'HackingGame' && attemptsLeft.length > 0 && <HackingGame 
+      {screen === 'Projects' && !isPassword && <Projects screen={screen} setScreen={setScreen}/>}
+      {screen === 'About' && !isPassword && <About screen={screen} setScreen={setScreen} />}
+      {screen === 'HackingGame' && !isPassword && attemptsLeft.length > 0 && <HackingGame 
         screen={screen} 
         setScreen={setScreen}
         gameBoard={gameBoard}
         attemptsLeft={attemptsLeft}
         hoveredWord={hoveredWord}
         likenessCol={likenessCol}
+        isPassword={isPassword}
+        setIsPassword={setIsPassword}
       />}
       {attemptsLeft.length === 0 &&
-      <div>404</div>
+      <AccessDenied 
+        screen={screen} 
+        setScreen={setScreen}
+        resetHackingGame={resetHackingGame}
+      />
+      }
+      {isPassword &&
+        <DirView screen={screen} setScreen={setScreen} directories={directories}/>
       }
     </div>
   );

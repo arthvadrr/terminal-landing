@@ -121,46 +121,46 @@ nav {
 
     li {
       margin: 1rem 0;
+    }
+  }
+}
 
-      .terminal-btn {
-        background: unset;
-        border: unset;
-        width: 100%;
-        text-align: left;
-        display: flex;
-        color: rgb(0, 242, 0);
-        text-decoration: none;
-        text-transform: uppercase;
-        padding: 0.5rem 0.2rem;
+.terminal-btn {
+  background: unset;
+  border: unset;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  color: rgb(0, 242, 0);
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 0.5rem 0.2rem;
 
-        &:before {
-          content: '[ '; 
-          margin-right: 1rem;
-        }
+  &:before {
+    content: '[ '; 
+    margin-right: 1rem;
+  }
 
-        &:after {
-          content: ' ]';
-          margin-left: 1rem;
-        }
+  &:after {
+    content: ' ]';
+    margin-left: 1rem;
+  }
 
-        &:not(.active):hover,
-        &:not(.active):active,
-        &:not(.active):focus {
-          background-color: rgb(0, 242, 0);
-          color: #000;
-          outline: none;
-        }
+  &:not(.active):hover,
+  &:not(.active):active,
+  &:not(.active):focus {
+    background-color: rgb(0, 242, 0);
+    color: #000;
+    outline: none;
+  }
 
-        &.active {
-          &:before {
-            content: '>';
-          }
+  &.active {
+    &:before {
+      content: '>';
+    }
 
-          &:after {
-            content: '';
-          }
-        }
-      }
+    &:after {
+      content: '';
     }
   }
 }

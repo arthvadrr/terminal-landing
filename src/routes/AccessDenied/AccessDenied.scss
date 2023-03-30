@@ -1,0 +1,29 @@
+.access-denied-inner {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    // .access-denied-content {
+    //     width: 100%;
+    // }
+
+    .ascii-pre {
+        width: 100%;
+        text-shadow: none;
+    
+        @media screen and (max-width: 1540px) {
+            font-size: 4px;
+        }
+    
+        @media screen and (max-width: 562px) {
+            font-size: 2px;
+        }
+    }
+
+    .terminal-btn {
+        text-align: center;
+        display: block;
+    }
+}
