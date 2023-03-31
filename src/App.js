@@ -16,8 +16,9 @@ const App = () => {
 
   const directories = [
     {
-      name: 'root',
+      name: 'home',
       type: 'dir',
+      icon: 'home',
       contents: [
         {
           name: 'passwords',
@@ -27,6 +28,7 @@ const App = () => {
         {
           name: 'cat-pics',
           type: 'dir',
+          icon: 'folder',
           contents: [
             {
               name: 'old-leo',
@@ -45,9 +47,22 @@ const App = () => {
     {
       name: 'trash',
       type: 'dir',
+      icon: 'trash',
       contents: [
         {
           name: 'important-email',
+          type: 'file',
+          extension: 'txt'
+        },
+      ]
+    },
+    {
+      name: 'documents',
+      type: 'dir',
+      icon: 'folder',
+      contents: [
+        {
+          name: 'important-emails-again',
           type: 'file',
           extension: 'txt'
         },
