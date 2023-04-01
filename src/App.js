@@ -21,7 +21,39 @@ const App = () => {
       icon: 'home',
       contents: [
         {
-          name: 'passwords',
+          name: '',
+          type: 'file',
+          extension: 'txt'
+        },
+        {
+          name: 'not-passwords',
+          type: 'file',
+          extension: 'txt'
+        },
+        {
+          name: '',
+          type: 'file',
+          extension: 'bashrc'
+        },
+      ]
+    },
+    {
+      name: 'documents',
+      type: 'dir',
+      icon: 'folder',
+      contents: [
+        {
+          name: 'badly-written-story',
+          type: 'file',
+          extension: 'txt'
+        },
+        {
+          name: 'important-emails-again',
+          type: 'file',
+          extension: 'txt'
+        },
+        {
+          name: 'todo-list',
           type: 'file',
           extension: 'txt'
         },
@@ -54,18 +86,16 @@ const App = () => {
           type: 'file',
           extension: 'txt'
         },
-      ]
-    },
-    {
-      name: 'documents',
-      type: 'dir',
-      icon: 'folder',
-      contents: [
         {
-          name: 'important-emails-again',
+          name: 'amazon-receipt',
           type: 'file',
           extension: 'txt'
         },
+        {
+          name: 'grocery-list',
+          type: 'file',
+          extension: 'txt'
+        }
       ]
     }
   ]

@@ -1,6 +1,8 @@
 import { useRef, useEffect, useState, createElement } from 'react';
 import Nav from '../../components/Nav/Nav';
 import Icon from '../../components/Icon/Icon';
+import BadlyWrittenStory from './files/BadlyWrittenStory';
+import NotPasswords from './files/NotPasswords';
 import './DirView.scss';
 
 const DirView = ({screen, setScreen, directories}) => {
@@ -53,10 +55,14 @@ const DirView = ({screen, setScreen, directories}) => {
                         <h2>Files</h2>
                         {renderDirTree(directories)}
                     </aside>
+                    <div className="file-preview">
+
+                    </div>
                 </header>
                 <main className="dirview-inner">
                     <section className="dir-content">
-
+                        {screen === "badly-written-story" && (<BadlyWrittenStory />)}
+                        {screen === "not-passwords" && (<NotPasswords />)}
                     </section>
                 </main>
             </div>
