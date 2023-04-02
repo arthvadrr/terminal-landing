@@ -1,8 +1,13 @@
-import { useRef, useEffect, useState, createElement } from 'react';
+import { createElement } from 'react';
 import Nav from '../../components/Nav/Nav';
 import Icon from '../../components/Icon/Icon';
 import BadlyWrittenStory from './files/BadlyWrittenStory';
 import NotPasswords from './files/NotPasswords';
+import BashRc from './files/BashRc';
+import CatPicture from './files/CatPicture';
+import bonkersTheCat from './files/assets/bonkers-the-cat.jpg';
+import loonyLarry from './files/assets/loony-larry.jpg';
+import oldLeo from './files/assets/old-leo.jpg'
 import './DirView.scss';
 
 const DirView = ({screen, setScreen, directories}) => {
@@ -62,7 +67,11 @@ const DirView = ({screen, setScreen, directories}) => {
                 <main className="dirview-inner">
                     <section className="dir-content">
                         {screen === "badly-written-story" && (<BadlyWrittenStory />)}
-                        {screen === "not-passwords" && (<NotPasswords />)}
+                        {screen === 'not-passwords' && (<NotPasswords />)}
+                        {screen === 'txt' && (<BashRc />)}
+                        {screen === 'bonkers-the-cat' && (<CatPicture pic={bonkersTheCat} alt="Bonkers the cat."/>)}
+                        {screen === 'old-leo' && (<CatPicture pic={oldLeo} alt="Old (and grumpy) Leo."/>)}
+                        {screen === 'loony-larry' && ( <CatPicture pic={loonyLarry} />)}
                     </section>
                 </main>
             </div>

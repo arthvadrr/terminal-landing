@@ -10,96 +10,10 @@ import HackingGame  from './routes/HackingGame/HackingGame';
 import AccessDenied from './routes/AccessDenied/AccessDenied';
 import DirView      from './routes/DirView/DirView'
 import terms        from './assets/terms';
+import directories  from './assets/directories';
 import                   './App.scss';
 
 const App = () => {  
-
-  const directories = [
-    {
-      name: 'home',
-      type: 'dir',
-      icon: 'home',
-      contents: [
-        {
-          name: '',
-          type: 'file',
-          extension: 'txt'
-        },
-        {
-          name: 'not-passwords',
-          type: 'file',
-          extension: 'txt'
-        },
-        {
-          name: '',
-          type: 'file',
-          extension: 'bashrc'
-        },
-      ]
-    },
-    {
-      name: 'documents',
-      type: 'dir',
-      icon: 'folder',
-      contents: [
-        {
-          name: 'badly-written-story',
-          type: 'file',
-          extension: 'txt'
-        },
-        {
-          name: 'important-emails-again',
-          type: 'file',
-          extension: 'txt'
-        },
-        {
-          name: 'todo-list',
-          type: 'file',
-          extension: 'txt'
-        },
-        {
-          name: 'cat-pics',
-          type: 'dir',
-          icon: 'folder',
-          contents: [
-            {
-              name: 'old-leo',
-              type: 'file',
-              extension: 'jpg'
-            },
-            {
-              name: 'bonkers-the-cat',
-              type: 'file',
-              extension: 'jpg'
-            },
-          ]
-        },
-      ]
-    },
-    {
-      name: 'trash',
-      type: 'dir',
-      icon: 'trash',
-      contents: [
-        {
-          name: 'important-email',
-          type: 'file',
-          extension: 'txt'
-        },
-        {
-          name: 'amazon-receipt',
-          type: 'file',
-          extension: 'txt'
-        },
-        {
-          name: 'grocery-list',
-          type: 'file',
-          extension: 'txt'
-        }
-      ]
-    }
-  ]
-
   const hackingGameInit = (gameBoardSettings) => {
     const { 
       rows, 
