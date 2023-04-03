@@ -15,11 +15,11 @@ const ImportantEmail = () => {
                 Thank you,<br/><br/>
                 Pastor Rankins<br/>
                 KuntryCo Market<br/>
-                <addr>
+                <address>
                     400 SW Baker Street<br/>
                     Horsebriarville Tennessee 37128<br/>
                     PRankins@kuntryco.com
-                </addr>
+                </address>
             </p>
         </>
     )

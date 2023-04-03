@@ -211,7 +211,7 @@ const App = () => {
   const [screen, setScreen] = useState('Home');
   const [gameBoard, setGameBoard] = useState(hackingGameInit(gameBoardSettings, decAttempt));
   const [hoveredWord, setHoveredWord] = useState('');
-  const [isPassword, setIsPassword] = useState(true);
+  const [isPassword, setIsPassword] = useState(false);
   const [likenessCol, setLikenessCol] = useState([]);
 
   useEffect(() => {
