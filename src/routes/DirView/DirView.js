@@ -7,6 +7,9 @@ import BashRc from './files/BashRc';
 import CatPicture from './files/CatPicture';
 import bonkersTheCat from './files/assets/bonkers-the-cat.jpg';
 import loonyLarry from './files/assets/loony-larry.jpg';
+import GroceryList from './files/GroceryList';
+import ImportantEmail from './files/ImportantEmail';
+import TodoList from './files/TodoList';
 import oldLeo from './files/assets/old-leo.jpg'
 import './DirView.scss';
 
@@ -55,11 +58,11 @@ const DirView = ({screen, setScreen, directories}) => {
             <div className="page-flex">
                 <header>
                     <h1>Root Directory</h1>
-                    <Nav screen={screen} setScreen={setScreen}/>
                     <aside className="dir-tree">
                         <h2>Files</h2>
                         {renderDirTree(directories)}
                     </aside>
+                    <Nav screen={screen} setScreen={setScreen}/>
                     <div className="file-preview">
 
                     </div>
@@ -72,6 +75,9 @@ const DirView = ({screen, setScreen, directories}) => {
                         {screen === 'bonkers-the-cat' && (<CatPicture pic={bonkersTheCat} alt="Bonkers the cat."/>)}
                         {screen === 'old-leo' && (<CatPicture pic={oldLeo} alt="Old (and grumpy) Leo."/>)}
                         {screen === 'loony-larry' && ( <CatPicture pic={loonyLarry} />)}
+                        {screen === 'grocery-list' && (<GroceryList />)}
+                        {screen === 'important-email' && (<ImportantEmail />)}
+                        {screen === 'todo-list' && (<TodoList />)}
                     </section>
                 </main>
             </div>

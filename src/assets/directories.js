@@ -1,4 +1,4 @@
-export default [
+const directories = [
     {
         name: 'home',
         type: 'dir',
@@ -23,11 +23,6 @@ export default [
         contents: [
         {
             name: 'badly-written-story',
-            type: 'file',
-            extension: 'txt'
-        },
-        {
-            name: 'important-emails-again',
             type: 'file',
             extension: 'txt'
         },
@@ -71,15 +66,12 @@ export default [
             extension: 'txt'
         },
         {
-            name: 'amazon-receipt',
-            type: 'file',
-            extension: 'txt'
-        },
-        {
             name: 'grocery-list',
             type: 'file',
             extension: 'txt'
         }
         ]
     }
-]
+];
+
+export default directories;
