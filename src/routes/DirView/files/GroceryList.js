@@ -1,6 +1,14 @@
-const GroceryList = () => {
+import { useEffect } from 'react';
+
+const GroceryList = ({scrollToId}) => {
+
+    useEffect(() => {
+        scrollToId();
+        }, []
+    );
+
     return(
-        <>
+        <div className="crt-on" id="dirView">
         <h2>Grocery List</h2>
         <ul>
             <li>Tracktor Stuffs</li>
@@ -17,7 +25,7 @@ const GroceryList = () => {
             <li>fencin'</li>
             <li>Sprinker faucet</li>
         </ul>
-        </>
+        </div>
     )
 }
 

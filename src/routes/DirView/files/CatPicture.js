@@ -1,6 +1,14 @@
-const CatPicture = ({pic, alt}) => {
+import { useEffect } from 'react';
+
+const CatPicture = ({pic, alt, scrollToId}) => {
+
+    useEffect(() => {
+        scrollToId();
+        }, []
+    );
+
     return(
-        <img src={pic} alt={alt}/>
+        <img className="crt-on" src={pic} alt={alt} id="dirView"/>
     );
 }
 

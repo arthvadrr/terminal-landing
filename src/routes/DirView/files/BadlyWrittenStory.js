@@ -1,6 +1,14 @@
-const BadlyWrittenStory = () => {
+import { useEffect } from 'react';
+
+const BadlyWrittenStory = ({scrollToId}) => {
+
+    useEffect(() => {
+            scrollToId();
+        }, []
+    );
+
     return (
-        <div>
+        <div className="crt-on" id="dirView">
             <h2>Chapter 1</h2>
             <p>
             "Lost at sea, eh?" the tavern's owner said, his face twisting into a grin. "Well, that's a new one, ain't it? What ship did you sail on, missy?"

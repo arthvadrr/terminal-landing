@@ -1,6 +1,14 @@
-const BashRc = () => {
+import { useEffect } from 'react';
+
+const BashRc = ({scrollToId}) => {
+    
+    useEffect(() => {
+        scrollToId();
+        }, []
+    );
+
     return (
-        <p>        
+        <p className="crt-on" id="dirView">        
         export PATH="$PATH:/usr/sbin:/sbin:/bin:/usr/bin:/etc:/usr/ucb:/usr/local/bin:/usr/local/local_dfs/bin:/usr/bin/X11:/usr/local/sas"<br/>
         export MANPATH="/usr/share/man:/usr/local/man:/usr/local/local_dfs/man"<br/>
         export PAGER=less<br/>

@@ -32,6 +32,11 @@ const directories = [
             extension: 'txt'
         },
         {
+            name: 'darlenes-note',
+            type: 'file',
+            extension: 'txt'
+        },
+        {
             name: 'cat-pics',
             type: 'dir',
             icon: 'folder',

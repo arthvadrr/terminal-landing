@@ -1,5 +1,15 @@
+.crt-on.hacking-game {
+    padding-top: 100px;
+}
+
 .hacking-inner {
     width: 100%;
+}
+
+.row.words div {
+    @media screen and (max-width: 600px) {
+        font-size: 0.5rem;
+    }
 }
 
 .attempts-remaining {
@@ -35,6 +45,16 @@
         display: flex;
         flex-direction: column-reverse;
         padding: 0 1rem;
+
+        @media screen and (max-width: 600px) {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            max-height: 100px;
+            overflow-x: hidden;
+            background-color: #111;
+        }
     }
 
     .hovered-word {

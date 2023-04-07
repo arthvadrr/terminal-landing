@@ -1,6 +1,14 @@
-const NotPasswords = () => {
+import { useEffect } from 'react';
+
+const NotPasswords = ({scrollToId}) => {
+    
+    useEffect(() => {
+        scrollToId();
+        }, []
+    );
+
     return (
-        <dl>
+        <dl className="crt-on" id="dirView">
             <dt>amazon</dt>
             <dd>ducksarecool69</dd>
             <dt>facebook</dt>

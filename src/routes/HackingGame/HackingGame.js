@@ -10,11 +10,11 @@ const HackingGame = ({
     likenessCol
 }) => {
     return (
-        <div className="crt-on">
+        <div className="crt-on hacking-game">
             <div className="page-flex">
                 <div>
                     <h1>!@#%!@</h1>
-                    <Nav screen={screen} setScreen={setScreen} />
+                     <Nav screen={screen} setScreen={setScreen} />
                 </div>
                 <div className="hacking-inner">
                     <h2>Password Required</h2>

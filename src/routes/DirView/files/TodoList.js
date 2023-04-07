@@ -1,6 +1,14 @@
-const TodoList = () => {
+import { useEffect } from 'react';
+
+const TodoList = ({scrollToId}) => {
+
+    useEffect(() => {
+        scrollToId();
+        }, []
+    );
+
     return (
-        <>
+        <div className="crt-on" id="dirView">
             <h2>Terdo List</h2>
             <ul>
                 <li>Don' ferget bout' all dem chikens day hungry</li>
@@ -11,7 +19,7 @@ const TodoList = () => {
                 <li>Sleep in barn agin' cause darlene be madder than a three-legger hippo. wider too.</li>
                 <li>Figur out what this thang "twidder" is</li>           
             </ul>
-        </>
+        </div>
     )
 }
 

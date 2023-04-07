@@ -160,12 +160,6 @@ const App = () => {
     setAttemptsLeft(() => [...shadow]);
   }
 
-  const clearLikenessCol = () => {
-    while (likenessCol.length) {
-      likenessCol.pop();
-    }
-  }
-
   const handleOnMouseOver = (e) => {
     setHoveredWord(e.target.innerHTML);
   }
@@ -204,24 +198,20 @@ const App = () => {
   }
 
   const resetHackingGame = () => {
-    resetAttempts();
-    clearLikenessCol();
-    setScreen('HackingGame');
-    setHoveredWord('');
-    setGameBoard(hackingGameInit(gameBoardSettings, false));
+    window.location.reload();
   }
   
-  const [attemptsLeft, setAttemptsLeft] = useState([1, 1, 1, 1, 1, 1]);
+  const [attemptsLeft, setAttemptsLeft] = useState(Array.from({length: 5}, () => 1));
   const [screen, setScreen] = useState('Home');
   const [existingBoard, setExistingBoard] = useState(false);
-  const [gameBoard, setGameBoard] = useState(hackingGameInit(gameBoardSettings, existingBoard));
+  const [gameBoard] = useState(hackingGameInit(gameBoardSettings, existingBoard));
   const [hoveredWord, setHoveredWord] = useState('');
   const [isPassword, setIsPassword] = useState(false);
   const [likenessCol, setLikenessCol] = useState([]);
 
   return (
     <div className="App">
-      {screen === 'Home' && !isPassword &&
+      {screen === 'Home' &&
       <> 
         <Home />
         <Nav 
@@ -230,9 +220,9 @@ const App = () => {
         />
       </>
       }
-      {screen === 'Projects' && !isPassword && <Projects screen={screen} setScreen={setScreen}/>}
-      {screen === 'About' && !isPassword && <About screen={screen} setScreen={setScreen} />}
-      {screen === 'HackingGame' && !isPassword && attemptsLeft.length > 0 && <HackingGame 
+      {screen === 'Projects' && <Projects screen={screen} setScreen={setScreen}/>}
+      {screen === 'About' && <About screen={screen} setScreen={setScreen} />}
+      {screen === 'HackingGame' && attemptsLeft.length > 0 && !isPassword && <HackingGame 
         screen={screen} 
         setScreen={setScreen}
         gameBoard={gameBoard}
@@ -249,7 +239,7 @@ const App = () => {
         resetHackingGame={resetHackingGame}
       />
       }
-      {isPassword &&
+      {screen === 'HackingGame' && isPassword &&
         <DirView screen={screen} setScreen={setScreen} directories={directories}/>
       }
     </div>
