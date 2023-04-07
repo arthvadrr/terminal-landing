@@ -14,7 +14,9 @@ import directories  from './assets/directories';
 import                   './App.scss';
 
 const App = () => {  
-  const hackingGameInit = (gameBoardSettings) => {
+  const hackingGameInit = (gameBoardSettings, existingBoard) => {
+    if (existingBoard) return;
+
     const { 
       rows, 
       rowLength, 
@@ -128,6 +130,7 @@ const App = () => {
 
         } else {
             result.password = getPassword();
+            setExistingBoard(true);
             return result;
         }
       }
@@ -170,6 +173,7 @@ const App = () => {
   let likenessKey = 0;
 
   const handleWordSelect = (word) => {
+    console.log(gameBoard.password);
     if (word !== gameBoard.password) {
       decAttempt();
 
@@ -204,18 +208,16 @@ const App = () => {
     clearLikenessCol();
     setScreen('HackingGame');
     setHoveredWord('');
-    setGameBoard(hackingGameInit(gameBoardSettings, decAttempt));
+    setGameBoard(hackingGameInit(gameBoardSettings, false));
   }
   
   const [attemptsLeft, setAttemptsLeft] = useState([1, 1, 1, 1, 1, 1]);
   const [screen, setScreen] = useState('Home');
-  const [gameBoard, setGameBoard] = useState(hackingGameInit(gameBoardSettings, decAttempt));
+  const [existingBoard, setExistingBoard] = useState(false);
+  const [gameBoard, setGameBoard] = useState(hackingGameInit(gameBoardSettings, existingBoard));
   const [hoveredWord, setHoveredWord] = useState('');
   const [isPassword, setIsPassword] = useState(false);
   const [likenessCol, setLikenessCol] = useState([]);
-
-  useEffect(() => {
-  }, [gameBoard]);
 
   return (
     <div className="App">
